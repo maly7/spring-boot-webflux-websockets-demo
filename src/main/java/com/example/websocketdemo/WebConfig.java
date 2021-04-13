@@ -12,9 +12,10 @@ import java.util.HashMap;
 public class WebConfig {
 
     @Bean
-    public HandlerMapping handlerMapping(EchoHandler echoHandler) {
+    public HandlerMapping handlerMapping(EchoHandler echoHandler, GreetingHandler greetingHandler) {
         var map = new HashMap<String, WebSocketHandler>();
         map.put("/echo", echoHandler);
+        map.put("/greetings", greetingHandler);
         int order = -1;
 
         return new SimpleUrlHandlerMapping(map, order);
